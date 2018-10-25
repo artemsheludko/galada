@@ -1,6 +1,6 @@
 // Pagination
 .pagination {
-  margin: 20px 0;
+  margin: 20px 0 40px;
   .pagination-list {
     display: flex;
     align-items: center;
@@ -34,5 +34,8 @@
         margin-right: 10px;
       }
     }
+  }
+  @media only screen and (min-width: 768px) {
+    margin: 20px 0;
   }
 }
