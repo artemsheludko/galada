@@ -81,12 +81,12 @@ layout: default
 
 				<div class="post-navigation">
 					{% if page.previous.url %}
-					<a href="{{page.previous.url}}" class="prev">
+					<a href="{{ site.baseurl }}{{page.previous.url}}" class="prev">
 						<div class="post-nav-arrow"><i class="ion ion-ios-arrow-round-back"></i> Previous Article</div>
 						<h2 class="post-nav-title">{{page.previous.title}}</h2>
 					</a>
 					{% endif %} {% if page.next.url %}
-					<a href="{{page.next.url}}" class="next">
+					<a href="{{ site.baseurl }}{{page.next.url}}" class="next">
 						<div class="post-nav-arrow">Next Article <i class="ion ion-ios-arrow-round-forward"></i></div>
 						<h2 class="post-nav-title">{{page.next.title}}</h2>
 					</a>
