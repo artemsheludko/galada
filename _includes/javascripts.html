@@ -1,5 +1,15 @@
 <script src="{{ site.baseurl }}/js/jquery-3.3.1.min.js"></script>
 <script src="{{ site.baseurl }}/js/simple-jekyll-search.min.js"></script>
+<script>
+  SimpleJekyllSearch({
+  searchInput: document.getElementById("js-search-input"),
+  resultsContainer: document.getElementById("js-results-container"),
+  json: "/search.json",
+  searchResultTemplate:
+    '<li class="search-item"><a class="search-link" href="{url}">{title}</a></li>',
+  noResultsText: '<li class="search-no-item">No results found</li>'
+  });
+</script>
 <script src="{{ site.baseurl }}/js/instafeed.min.js"></script>
 <script src="{{ site.baseurl }}/js/jquery.waitforimages.min.js"></script>
 <script src="{{ site.baseurl }}/js/jquery.fitvids.js"></script>
