@@ -7,12 +7,12 @@
     <div class="recent-posts">
       {% if post.image %}
       <div class="recent-header">
-        <a class="recent-image" href="{{ root_url }}{{ | prepend: site.baseurl }}" style="background-image: url({{"/img/" | prepend: site.baseurl | append: post.image}})"></a>
+        <a class="recent-image" href="{{ root_url }}{{ post.url | prepend: site.baseurl }}" style="background-image: url({{"/img/" | prepend: site.baseurl | append: post.image}})"></a>
       </div>
       {% else %}
       {% endif %}
       <div class="recent-content">
-        <h6 class="recent-title"><a href="{{ root_url }}{{ | prepend: site.baseurl }}">{{ post.title }}</a></h6>
+        <h6 class="recent-title"><a href="{{ root_url }}{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h6>
         <div class="recent-date">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{post.date | date: "%B %-d, %Y"}}</time>
         </div>
