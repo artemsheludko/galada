@@ -1,0 +1,124 @@
+$columns: 12;
+$container-base-width: 1200px;
+$container-offset: $base-spacing-unit;
+
+$mobile:  576px;
+$tablet:  768px;
+$desktop: 992px;
+
+$mq: ( $mobile:$columns, $tablet:$columns, $desktop:$columns );
+
+.container {
+  max-width: $container-base-width;
+  padding-left: $container-offset;
+  padding-right: $container-offset;
+  margin: 0 auto;
+}
+
+.container-full {
+  max-width: 100%;
+  padding-left: $container-offset;
+  padding-right: $container-offset;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 1 auto;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin-left: ($base-spacing-unit * -1);
+  margin-right: ($base-spacing-unit * -1);
+}
+
+.col {
+  padding-left: $base-spacing-unit;
+  padding-right: $base-spacing-unit;
+}
+
+[class^="col-"] {
+  flex: auto;
+}
+
+/* ========== MOBILE FIRST ========== */
+
+// MOBILE
+@for $i from 0 through $columns {
+  .col-#{$i} {
+    width: percentage( $i / $columns );
+  }
+}
+
+@for $i from 0 through $columns {
+  .push-#{$i} {
+    margin-left: percentage( $i / $columns );
+  }
+}
+
+@for $i from 0 through $columns {
+  .pull-#{$i} {
+    margin-right: percentage( $i / $columns );
+  }
+}
+
+
+@each $key, $val in $mq {
+
+  // TABLET
+  @media(min-width: $tablet) {
+
+    @for $i from 0 through $columns {
+      .col-t-#{$i} {
+        width: percentage( $i / $columns );
+      }
+    }
+
+    @for $i from 0 through $columns {
+      .push-t-#{$i} {
+        margin-left: percentage( $i / $columns );
+      }
+    }
+
+    @for $i from 0 through $columns {
+      .pull-t-#{$i} {
+        margin-right: percentage( $i / $columns );
+      }
+    }
+  }
+
+
+  // DESKTOP
+  @media(min-width: $desktop) {
+
+    @for $i from 0 through $columns {
+      .col-d-#{$i} {
+        width: percentage( $i / $columns );
+      }
+    }
+
+    @for $i from 0 through $columns {
+      .push-d-#{$i} {
+        margin-left: percentage( $i / $columns );
+      }
+    }
+
+    @for $i from 0 through $columns {
+      .pull-d-#{$i} {
+        margin-right: percentage( $i / $columns );
+      }
+    }
+  }
+
+}
+
+@media(min-width: $desktop) {
+  .d-hide {
+    display: none !important;
+  }
+
+  .d-show {
+    display: block !important;
+  }
+}
+

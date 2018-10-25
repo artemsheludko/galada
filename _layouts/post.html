@@ -1,0 +1,107 @@
+---
+layout: default
+---
+<div class="container">
+	<div class="row">
+		<div class="col col-12">
+			<div class="post-image-box">
+				<div class="post-image" style="background-image: url({{"/img/" | prepend: site.baseurl | append : page.image}})"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<article class="col col-12 col-t-8 post">
+			<div class="post-content">
+
+				<div class="post-head">
+					{% if page.tags.size >= 1 %}
+					<div class="post-tag">
+						{% for tag in page.tags %}
+						<a href="{{ site.baseurl }}/tags#{{tag}}" class="tag">{{ tag }}</a>
+						{% endfor %}
+					</div>
+					{% endif %}
+					<h1 class="post-title">{{ page.title | escape }}</h1>
+					<div class="post-info">
+						<div class="post-info-author">
+							<div class="info-author-avatar" style="background-image: url({{"/img/" | prepend: site.baseurl | append : site.author-avatar}})"></div>
+							<span>by</span>
+							<span class="info-author-name">{{site.author-name}}</span>
+						</div>
+						<div class="post-date">
+							<span>
+								<time datetime="{{ page.date | date_to_xmlschema }}">{{page.date | date: '%b %d, %Y'}}</time>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="post-body">
+					{{ content }}
+
+					<div class="post-share">
+						<ul class="share-list list-reset">
+							<li class="share-item">
+								<a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}"
+								onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+								title="Share on Facebook" rel="nofollow">
+									<i class="ion ion-logo-facebook"></i>
+								</a>
+							</li>
+					
+							<li class="share-item">
+								<a class="share-twitter" href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}"
+								onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+								title="Share on Twitter" rel="nofollow">
+									<i class="ion ion-logo-twitter"></i>
+								</a>
+							</li>
+					
+							<li class="share-item">
+								<a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ site.baseurl }}{{ page.url }}&title={{ page.title | uri_escape }}&summary={{ page.description | uri_escape }}&source={{ site.title | uri_escape }}"
+								onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+								title="Share on LinkedIn" rel="nofollow">
+									<i class="ion ion-logo-linkedin"></i>
+								</a>
+							</li>
+					
+							<li class="share-item">
+								<a class="share-pinterest" href="http://pinterest.com/pin/create/button/?url={{ site.url }}{{ page.url }}&amp;media={{ site.url }}{{ site.baseurl }}/img/{{ page.image }}&amp;description={{ page.title | uri_escape }}"
+								onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+								title="Share on Pinterest" rel="nofollow">
+									<i class="ion ion-logo-pinterest"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="post-navigation">
+					{% if page.previous.url %}
+					<a href="{{page.previous.url}}" class="prev">
+						<div class="post-nav-arrow"><i class="ion ion-ios-arrow-round-back"></i> Previous Article</div>
+						<h2 class="post-nav-title">{{page.previous.title}}</h2>
+					</a>
+					{% endif %} {% if page.next.url %}
+					<a href="{{page.next.url}}" class="next">
+						<div class="post-nav-arrow">Next Article <i class="ion ion-ios-arrow-round-forward"></i></div>
+						<h2 class="post-nav-title">{{page.next.title}}</h2>
+					</a>
+					{% endif %}
+				</div>
+
+			</div>
+			{% if site.disqus-identifier %}
+				{% include disqus-comments.html %}
+			{% endif %}
+	</article> <!-- /.post -->
+
+	<div class="col col-12 col-t-4">
+		{% include sidebar.html %}
+	</div>
+
+	</div>
+</div>

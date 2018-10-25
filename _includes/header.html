@@ -1,0 +1,39 @@
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="header-box">
+          <div class="logo-title">
+            <a href="{{site.baseurl}}/" class="logo-text">Galada</a>
+          </div>
+
+          <nav class="nav-menu">
+            <i class="menu-close ion ion-ios-close"></i>
+            <ul class="menu-list">
+              <li class="menu-item"><a href="{{site.baseurl}}/" class="menu-link">Home</a></li>
+              {% for page in site.pages %}
+                {% unless page.name == 'tags.html' or page.name == '404.html' %}
+              {% if page.title %}
+              <li class="menu-item"><a href="{{ page.url | prepend: site.baseurl }}" class="menu-link">{{ page.title }}</a></li>
+              {% endif %}
+                {% endunless %}
+              {% endfor %}
+            </ul>
+          </nav>
+          <div class="nav-buttons">
+            <i class="menu-button d-hide ion ion-ios-menu"></i>
+            <i class="search-button ion ion-ios-search"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search">
+    <div class="search-box">
+      <i class="search-close-button ion ion-ios-close"></i>
+      <label for="js-search-input" class="screen-reader-text"></label>
+      <input type="text" id="js-search-input" class="search-text" autocomplete="off" placeholder="Search Something...">
+      <ol id="js-results-container" class="search-results-list"></ol>
+    </div>
+  </div>
+</header> <!-- /.header -->

@@ -1,0 +1,82 @@
+// FOOTER
+.footer {
+  padding: 50px 0;
+  margin-top: 30px;
+  background: $black;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid $border-color;
+  .logo-text {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: $text;
+    &:hover {
+      color: $gray-blue;
+    }
+  }
+  .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $blue-black;
+    background-color: $blue-black;
+    color: $text;
+    cursor: pointer;
+    transition: $global-transition;
+    opacity: .5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .copyright {
+    margin-right: 60px;
+    p {
+      margin-bottom: 0;
+      font-size: 13px;
+      color: $gray-blue;
+      a {
+        color: $gray-blue;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  .footer-social {
+    ul {
+      li {
+        display: inline-block;
+        margin-left: 15px;
+        &:first-child {
+          margin-left: 0;
+        }
+        a {
+          font-size: 13px;
+          font-weight: bold;
+          color: $gray-blue;
+          transition: $global-transition;
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}

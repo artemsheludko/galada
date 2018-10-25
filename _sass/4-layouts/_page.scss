@@ -1,0 +1,71 @@
+// Page
+.page {
+  margin-bottom: 20px;
+}
+
+.page-image-box {
+  background: $black;
+  &.reveal-in {
+    .page-image {
+      opacity: 1;
+    }
+  }
+}
+
+.page-image {
+  min-height: 230px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $black;
+  box-shadow: 0 9px 18px 0 rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.6, 0.3, 0, 1);
+  &:after {
+    content: "";
+    display: table;
+    width: 100%;
+    padding-top: 50%;
+  }
+}
+
+.page-content {
+  padding: 40px 15px;
+  box-shadow: 0 9px 18px 0 rgba(0,0,0,0.25);
+  background: rgba($blue-darken, .95);
+}
+
+.page-head {
+  padding-bottom: 30px;
+  .page-title {
+    font-size: 28px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 28px;
+    margin-bottom: 0;
+  }
+}
+
+.page-head, .page-body {
+  margin-bottom: 20px;
+  border-bottom: 1px solid $border-color;
+}
+
+.page-body {
+  padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 576px) {
+  .page-content {
+    padding: 40px;
+  }
+
+  .page-head {
+    .page-title {
+      font-size: 43px;
+      line-height: 43px;
+      margin-bottom: 10px;
+    }
+  }
+}

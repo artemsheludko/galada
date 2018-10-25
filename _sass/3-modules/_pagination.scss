@@ -1,0 +1,38 @@
+// Pagination
+.pagination {
+  margin: 20px 0;
+  .pagination-list {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .older-posts, .previous-posts, .newer-posts {
+      display: inline-block;
+      flex-grow: 1;
+      .older-link, .previous-link, .newer-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 35px;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: bold;
+        color: $text;
+        background: rgba($blue-darken, .95);
+        transition: $global-transition;
+        &:hover {
+          background: rgba(28, 29, 31, 0.95);
+        }
+      }
+    }
+    .older-link {
+      i {
+        margin-left: 10px;
+      }
+    }
+    .previous-link, .newer-link {
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,231 @@
+// Post
+.post {
+  margin-bottom: 20px;
+}
+
+.post-image-box {
+  background: $black;
+  &.reveal-in {
+    .post-image {
+      opacity: 1;
+    }
+  }
+}
+
+.post-image {
+  min-height: 430px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $black;
+  box-shadow: 0 9px 18px 0 rgba(0,0,0,0.25);
+  position: relative;
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.6, 0.3, 0, 1);
+  &:after {
+    content: "";
+    display: table;
+    width: 100%;
+    padding-top: 50%;
+  }
+}
+
+.post-head, .post-content {
+  background: rgba($blue-darken, .95);
+}
+
+.post-content {
+  padding: 40px 15px;
+  box-shadow: 0 9px 18px 0 rgba(0,0,0,0.25);
+}
+
+.post-head, .post-body {
+  margin-bottom: 20px;
+  border-bottom: 1px solid $border-color;
+}
+
+.post-head {
+  padding-bottom: 30px;
+  .post-tag {
+    margin-bottom: 20px;
+    text-align: center;
+    .tag {
+      display: inline-block;
+      padding: 5px 15px;
+      margin-right: 5px;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: bold;
+      border: 1px solid $primary-color;
+      text-transform: capitalize;
+      color: $primary-color;
+      transition: $global-transition;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        background: $primary-color;
+        color: $white;
+      }
+    }
+  }
+  .post-title {
+    font-size: 28px;
+    text-align: center;
+    font-weight: normal;
+    line-height: 28px;
+    margin-bottom: 5px;
+  }
+  .post-date {
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+.post-info, .post-info-author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.post-info {
+  .post-info-author {
+    .info-author-avatar {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .info-author-name, span {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    span {
+      margin-right: 10px;
+    }
+    .info-author-name {
+      position: relative;
+      padding-right: 20px;
+      margin-right: 15px;
+      color: $text;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        display: block;
+        width: 2px;
+        height: 12px;
+        background: $border-color;
+      }
+    }
+  }
+}
+
+.post-body {
+  padding-bottom: 20px;
+}
+
+.post-share {
+  padding: 10px 0;
+  .share-item {
+    display: inline-block;
+    padding-right: 15px;
+    a {
+      color: $border-color;
+      &:hover {
+        color: $primary-color;
+      }
+      i.ion {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+// POST NAVIGATION
+.post-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.prev, .next {
+  flex-basis: 100%;
+  padding: 15px;
+  background: #26272B;
+  &:hover {
+    background: darken(#26272B, 3%);
+    .post-nav-title {
+      color: $primary-color;
+      transition: $global-transition;
+    }
+  }
+  .post-nav-arrow {
+    font-size: 14px;
+    color: $text;
+  }
+  .post-nav-title {
+    font-size: 18px;
+    color: $text;
+    transition: $global-transition;
+  }
+}
+
+.prev {
+  margin-bottom: 10px;
+}
+
+.prev, .next {
+  text-align: center;
+}
+
+// COMMENTS SECTION
+.comments {
+  padding: 0 15px;
+  background: $blue-darken;
+}
+
+// MEDIA
+@media only screen and (min-width: 576px) {
+  .post-content {
+    padding: 40px;
+  }
+  .post-head {
+    .post-title {
+      font-size: 43px;
+      line-height: 43px;
+      margin-bottom: 10px;
+    }
+  }
+  .post-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  .prev, .next {
+    flex-basis: 48%;
+    padding: 20px;
+    .post-nav-title {
+      font-size: 21px;
+    }
+  }
+  .prev {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  .next {
+    text-align: right;
+  }
+  .comments {
+    padding: 0 40px;
+  }
+}

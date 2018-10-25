@@ -1,0 +1,32 @@
+// Tags
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 0;
+  padding: 0;
+  list-style: none;
+  .tags-item {
+    margin: 5px;
+  }
+  .tags-link {
+    display: inline-block;
+    padding: 7px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: $text;
+    font-weight: 700;
+    background: $blue-black;
+    &:hover {
+      color: $white;
+      background: $primary-color;      
+    }
+  }
+}
+
+.tags-title {
+  margin-bottom: 5px;
+}
+
+.tags-group {
+  margin-bottom: 30px;
+}

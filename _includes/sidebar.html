@@ -1,0 +1,95 @@
+<aside class="sidebar">
+  
+  {% if page.id %}
+  <div class="widget widget-recent">
+    <h3 class="widget-title">Recent Posts</h3>
+    {% for post in site.posts limit:4 %}
+    <div class="recent-posts">
+      {% if post.image %}
+      <div class="recent-header">
+        <a class="recent-image" href="{{ post.url }}" style="background-image: url({{"/img/" | prepend: site.baseurl | append: post.image}})"></a>
+      </div>
+      {% else %}
+      {% endif %}
+      <div class="recent-content">
+        <h6 class="recent-title"><a href="{{ post.url }}">{{ post.title }}</a></h6>
+        <div class="recent-date">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{post.date | date: "%B %-d, %Y"}}</time>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  {% endif %}
+
+  <div class="widget widget-social">
+    <h3 class="widget-title">Subscribe & Follow</h3>
+    <ul class="social-profiles list-reset">
+      {% if site.facebook %}
+      <li class="social-profiles-item">
+        <a href="{{ site.facebook }}" class="social-profiles-link"><i class="ion ion-logo-facebook"></i></a>
+      </li>
+      {% else %} {% endif %}
+
+       {% if site.twitter %}
+      <li class="social-profiles-item">
+        <a href="{{ site.twitter }}" class="social-profiles-link"><i class="ion ion-logo-twitter"></i></a>
+      </li>
+      {% else %} {% endif %}
+
+      {% if site.instagram %}
+      <li class="social-profiles-item">
+        <a href="{{ site.instagram }}" class="social-profiles-link"><i class="ion ion-logo-instagram"></i></a>
+      </li>
+      {% else %} {% endif %}
+
+      {% if site.pinterest %}
+      <li class="social-profiles-item">
+        <a href="{{ site.pinterest }}" class="social-profiles-link"><i class="ion ion-logo-pinterest"></i></a>
+      </li>
+      {% else %} {% endif %}
+    </ul>
+  </div>
+
+  <div class="widget widget-newsletter">
+    <h3 class="widget-title">Newsletter</h3>
+    <div class="newsletter-subtitle">Get Interesting News</div>
+    <div class="newsletter-text">Receive the latest news via email.</div>
+    <form class="c-newsletter-form validate" action="{% if site.mailchimp %}//{{site.mailchimp}}{% else %}#{% endif %}" method="POST"
+      id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <div class="newsletter-group">
+        <div class="newsletter-group-top">
+          <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+          <i class="email-icon ion ion-ios-mail"></i>
+          <input class="newsletter-email required email" id="mce-EMAIL" type="text" name="EMAIL" placeholder="E-mail">
+        </div>
+        <input class="newsletter-button" id="mc-embedded-subscribe" type="submit" name="subscribe" value="Subscribe">
+      </div>
+    </form>
+  </div>
+
+  {% if site.instafeed == true %}
+  <div class="widget widget-instagram">
+    <h3 class="widget-title">Instagram</h3>
+    <div class="instagram-box">
+      <ul id="instafeed" class="instagram-grid list-reset clearfix"></ul>
+      <a class="instagram-prof" href="#">&#64;UserName</a>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="widget widget-tags">
+    <h3 class="widget-title">Tag Cloud</h3>
+    {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{%
+    endcapture %} {% assign tag_words = site_tags | split:',' | sort %}
+    <ul class="tag-list list-reset">
+    {% for item in (0..site.tags.size) %}{% unless forloop.last %}
+      {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+        <li class="tag-item"><a href="{{ site.baseurl }}/tags#{{ this_word | cgi_escape }}" class="tag">{{ this_word }}</a></li>
+      {% endunless %}
+    {% endfor %}
+    </ul>
+  </div>
+  
+</aside> <!-- /.sidebar -->
